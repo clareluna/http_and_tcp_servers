@@ -7,9 +7,9 @@ var server = http.createServer(function(req, res) {
 	if(req.url === '/time') {
 		var now = new Date().toString();
 		res.writeHead(200, {
-			'Content-Type': 'application/json'
+			'Content-Type': 'text/plain'
 		});
-		res.write(jsonDate);
+		res.write(now);
 		return res.end();
 	}
 
@@ -23,8 +23,9 @@ var server = http.createServer(function(req, res) {
 	}
 
 	if(req.url ==='/greet' && req.method === 'POST') {  
+		var parsed = '';
 		req.on('data', function(data){
-			var parsed = JSON.parse(data);
+			parsed = JSON.parse(data);
 		});
 		res.writeHead(200, {"Content-Type": "application/json"});
 		res.write(parsed.name);
