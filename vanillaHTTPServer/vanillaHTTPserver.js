@@ -14,7 +14,7 @@ var server = http.createServer(function(req, res) {
 	}
 
 	var url = req.url.toString();
-	var name = url.substring(7); 
+	var name = url.substring(6); 
 
 	if(req.url === url && req.method === "GET"){
 		res.writeHead(200, {"Content-Type" : "text/plain"});
